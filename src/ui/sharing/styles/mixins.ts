@@ -48,7 +48,8 @@ export const grid = ({ columns, gap, areas }: GridConfig) => {
 };
 
 export const text = ({ size, weight, height, align }: TextConfig) => {
-  const fontWeight = weight ? `font-weight: ${weight};` : "";
+  // const fontWeight = weight ? `font-weight: ${weight};` : "";
+  const fontWeight = weight ? `font-variation-settings: "wght" ${weight};` : "";
   const lineHeightContent = height ? `line-height: ${height}rem;` : "";
   const textAlign = align ? `text-align: ${align};` : "";
 
@@ -61,7 +62,7 @@ export const text = ({ size, weight, height, align }: TextConfig) => {
   `;
 };
 
-export const content = ({ width = "1500px", padding = "0 16px", margin = "0 auto" }: ContentConfig) => css`
+export const content = ({ width = "var(--size-content)", padding = "0 16px", margin = "0 auto" }: ContentConfig = {}) => css`
   display: block;
   width: 100%;
   max-width: ${width};
